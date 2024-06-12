@@ -12,12 +12,12 @@ class sayingService {
             }
     
             const newSaying = new SayingModel({
-                saying
+                text: saying
             });
     
             await newSaying.save();
     
-            console.log("Saying created successfully" + newSaying._id)
+            console.log("Saying created successfully " + newSaying._id)
             return {
                 success: true,
                 message: "Saying created successfully"
@@ -93,7 +93,7 @@ class sayingService {
                 }
             }
 
-            const updatedSaying = await SayingModel.findByIdAndUpdate(id, {saying}, {new: true});
+            const updatedSaying = await SayingModel.findByIdAndUpdate(id, {text: saying}, {new: true});
 
             if(!updatedSaying){
                 console.log("Saying not found");
